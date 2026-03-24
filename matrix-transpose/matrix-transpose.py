@@ -6,14 +6,9 @@ def matrix_transpose(A):
     """
     A = np.asarray(A)
     r, c = A.shape
-    m = max(r,c)
-    res = np.zeros((m,m), dtype=A.dtype)
-    res[:r, :c] = A
-    for i in range(m):
-        for j in range(m):
-            if i < j:
-                tmp = res[i][j]
-                res[i][j] = res[j][i]
-                res[j][i] = tmp
-    return res[:c, :r]
+    res = np.zeros((c,r), dtype=A.dtype)
+    for i in range(c):
+        for j in range(r):
+            res[i][j] = A[j][i]
+    return res
     pass
